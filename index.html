@@ -17,7 +17,7 @@
 
         <header>
             <!-- Logotipo clicável para a página inicial -->
-            <div class="logotitle">
+            <div class="logotitle" title="Clique para a página inicial" aria-label="Clique para a página inicial">
                 <a href="index.html">
                     <img src="img/logo01.jpg" alt="Logotipo do FirstSteps">
                 </a>
@@ -25,18 +25,31 @@
             </div>
 
             <form class="header-search" action="https://www.google.com/search" target="_blank" method="get">
-                <input type="search" name="q">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-fw"></i></button>
+                <input type="search" name="q" placeholder="Pesquisar...">
+                <button type="submit" title="Clique para pesquisar" aria-label="Clique para pesquisar"><i
+                        class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-fw"></i></button>
             </form>
 
         </header>
 
-        <nav>
+        <nav aria-label="Menu principal">
 
-            <a href="index.html">Início</a>
-            <a href="content.html">Conteúdo</a>
-            <a href="contacts.html">Contatos</a>
-            <a href="about.html">Sobre</a>
+            <a href="index.html" title="Página inicial">
+                <i class="fa-solid fa-house fa-fw"></i>
+                <span>Início</span>
+            </a>
+            <a href="content.html" title="Conteúdo do site" aria-label="Conteúdo do site">
+                <i class="fa-solid fa-file-lines fa-fw"></i>
+                <span>Conteúdo</span>
+            </a>
+            <a href="contacts.html" title="Faça contato" aria-label="Faça contato">
+                <i class="fa-solid fa-comments fa-fw"></i>
+                <span>Contatos</span>
+            </a>
+            <a href="about.html" title="Mais informações" aria-label="Mais informações">
+                <i class="fa-solid fa-circle-info fa-fw"></i>
+                <span>Sobre</span>
+            </a>
 
         </nav>
 
