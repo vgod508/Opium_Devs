@@ -16,7 +16,10 @@ Referências: https://fontawesome.com
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css');
 
 
-/* Variáveis com estilos de uso geral */
+/**************************************
+ * Variáveis com estilos de uso geral *
+ **************************************/
+
 :root {
     --wrap-max-width: 1080px;
     --default-links: steelblue;
@@ -35,7 +38,9 @@ Referências: https://fontawesome.com
     --nav-menu-hover-bg-color: rgba(255, 255, 255, .4);
 }
 
-/* Reset Geral */
+/***************
+ * Reset Geral *
+ ***************/
 * {
     box-sizing: border-box;
     outline: none;
@@ -89,7 +94,7 @@ a:hover {
     color: var(--default-links-hover);
 }
 
-/* Tela de fundo */
+/* Fundo da página */
 body {
     /* background: linear-gradient(to right, blue, red, cyan); */
     /* background-image: var(--body-background-image); */
@@ -100,14 +105,18 @@ body {
     background-attachment: fixed;
 }
 
-/* Imagem responsiva */
-.azul {
+/* Imagens responsivas */
+.rimg {
     width: auto;
     max-width: 100%;
     height: auto;
 }
 
-/* Elemento Wrap */
+/**************************
+ * Estilizando o template *
+ **************************/
+
+/* Elemento Wrap (#wrap) */
 #wrap {
     max-width: var(--wrap-max-width);
     margin: auto;
@@ -117,10 +126,14 @@ body {
     flex-direction: column;
 }
 
-/* Cabeçalho da página */
+/***********************
+ * Cabeçalho da página *
+ ***********************/
 
-/* header é filho direto de #wrap (>)
-parent > direct-child */
+/*
+<header> que é filho direto (>) de <div#wrap> 
+Seletor: parent > direct-child 
+*/
 #wrap>header {
     background-color: var(--header-background-color);
     border-radius: .5rem;
@@ -129,19 +142,26 @@ parent > direct-child */
     flex-direction: column;
 }
 
-#wrap>header img {
-    display: block;
-    width: 90px;
-    border-radius: 50%;
-    margin: .5rem;
-}
-
-/* Referências: https://www.w3schools.com/css/css3_flexbox.asp */
+/* 
+Logotipo e título do site (div.logotitle) usando Flexbox
+Referências: https://www.w3schools.com/css/css3_flexbox.asp 
+*/
 .logotitle {
+    /* `display: flex` alinha os elementos lado-a-lado por padrão */
     display: flex;
     align-items: center;
 }
 
+/* Logotipo */
+.logotitle img {
+    width: 90px;
+    margin: .5rem;
+    /* Deixa a imagem `quadrada`, redonda */
+    display: block;
+    border-radius: 50%;    
+}
+
+/* Nome do site */
 .logotitle h1 {
     font-family: var(--header-logo-font);
     font-weight: bold;
@@ -149,14 +169,14 @@ parent > direct-child */
     -webkit-text-stroke: var(--header-title-stroke);
 }
 
-/* Formulário de pesquisa */
+/* Formulário de pesquisa no cabeçalho */
 .header-search {
     padding: 1rem;
     display: flex;
     border-top: var(--top-search-border);
 }
 
-/* Filhos do formulário */
+/* Reset dos `parent` do formulário de pesquisa */
 .header-search input,
 .header-search button {
     font-family: inherit;
@@ -164,92 +184,114 @@ parent > direct-child */
     border: none;
 }
 
-/* Só com o campo de pesquisa */
+/* Só o campo de pesquisa */
 .header-search input {
     padding: .5rem 1rem;
-    flex-grow: 1;
     border-radius: .3rem 0 0 .3rem;
+    /* Faz o elemento ocupar todo o espaço não usado do elemento pai */
+    flex-grow: 1;    
 }
 
 .header-search button {
     padding: .5rem;
     border-radius: 0 .3rem .3rem 0;
+    /* Modifica o cursor no mouse. Não funciona em `touch` */
     cursor: pointer;
 }
 
-/* Menu principal */
+/******************
+ * Menu principal *
+ ******************/
 
 #wrap>nav {
     background-color: var(--nav-footer-background-color);
     display: flex;
     align-items: center;
-    justify-content: end;
     margin: .5rem;
     margin-top: 0;
     border-radius: .5rem;
     border: 1px solid black;
+    /* Posiciona os elementos filho à direita */
+    justify-content: end;
 }
 
-#wrap>nav a:first-child {
-    margin-right: auto;
-    border-radius: .4rem 0 0 .4rem;
-}
-
-#wrap>nav a:last-child {
-    border-radius: 0 .4rem .4rem 0;
-}
-
+/* Opções do menu */
 #wrap>nav a {
     display: flex;
+    /* Os ícones ficam acima das label */
     flex-direction: column;
     align-items: center;
     padding: .5rem;
     color: var(--nav-menu-color);
+    /* Adiciona 200 ms de transição entre os efeitos */
     transition: .2s;
 }
 
+/* Ao passar o ponteiro sobre as opções do menu */
 #wrap>nav a:hover {
     color: var(--nav-menu-hover-color);
     background-color: var(--nav-menu-hover-bg-color);
 }
 
+/* Seleciona somente o primeiro elemento filho do tipo <a> */
+#wrap>nav a:first-child {
+    margin-right: auto;
+    border-radius: .4rem 0 0 .4rem;
+}
+
+/* Seleciona somente o último elemento filho do tipo <a> */
+#wrap>nav a:last-child {
+    border-radius: 0 .4rem .4rem 0;
+}
+
+/* Seleciona os ícones → Tag <i> */
 #wrap>nav a i {
     font-size: 1.8rem;
     padding-bottom: .25rem;
 }
 
-/* Main e conteúdo principal */
+/*****************************
+ * Main e conteúdo principal *
+ *****************************/
 
-#wrap>main {}
+#wrap>main {
+    display: flex;
+    /* Posiciona os filhos em linhas, um sobre o outro */
+    flex-direction: column;
+}
 
-#wrap>main section,
-#wrap>main article,
-#wrap>main aside {
+/* Todos os filhos diretos do <main> */
+#wrap>main>section,
+#wrap>main>article,
+#wrap>main>aside {
     margin: .5rem;
     margin-top: 0;
     border-radius: .5rem;
 }
 
+/* Elementos com o conteúdo principal */
 #wrap>main section,
 #wrap>main article {
     background-color: var(--article-section-background-color);
     padding: 1.5rem;
-    /* line-height: 1.5; */
-    /* text-align: justify; */
 }
 
+/* Elemento com conteúdo auxiliar */
 #wrap>main aside {
     background-color: var(--aside-background-color);
     padding: 1rem;
 }
 
+/**********************************
+ * Responsividade e Media Queries *
+ **********************************/
 
-
-/* Media queries para telas de 640px ou mais */
+/* Quando a largura da tela for de 640px ou mais */
 @media screen and (min-width: 640px) {
 
     /* Cabeçalho <header> responsivo */
     #wrap>header {
+        /* Posiciona o formulário ao lado do título */
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -260,13 +302,13 @@ parent > direct-child */
         border: none;
     }
 
-    /* Itens do menu principal responsivos */
+    /* Posiciona os ícones ao lado das label */
     #wrap>nav a {
         flex-direction: row;
         padding: .65rem 1rem;
     }
 
-    /* Ícones do menu principal */
+    /* Ajsuta tamanho dos ícones do menu principal */
     #wrap>nav a i {
         font-size: 1.2rem;
         padding-right: .25rem;
