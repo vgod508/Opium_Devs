@@ -22,7 +22,7 @@ Referências: https://fontawesome.com
 
 :root {
     --wrap-max-width: 1080px;
-    --default-links: steelblue;
+    --default-links: rgb(251, 255, 0);
     --default-links-hover: orangered;
     --body-background-image: url("../img/bg01.jpg");
     --body-background-color: rgb(185, 185, 185);
