@@ -22,11 +22,11 @@ Referências: https://fontawesome.com
 
 :root {
     --wrap-max-width: 1080px;
-    --default-links: rgb(251, 255, 0);
-    --default-links-hover: orangered;
-    --body-background-image: url("../img/bg01.jpg");
+    --default-links: rgb(230, 64, 174);
+    --default-links-hover: rgb(34, 14, 82);
+    --body-background-image: url("../img/bgsoul.jpg");
     --body-background-color: rgb(185, 185, 185);
-    --header-background-color: orange;
+    --header-background-color: rgb(140, 0, 221);
     --header-logo-font: Arial, helvetica, sans-serif;
     --header-title-stroke: .75px white;
     --nav-footer-background-color: black;
@@ -97,7 +97,7 @@ a:hover {
 /* Fundo da página */
 body {
     /* background: linear-gradient(to right, blue, red, cyan); */
-    /* background-image: var(--body-background-image); */
+    background-image: var(--body-background-image); 
     background-color: var(--body-background-color);
     background-position: center;
     background-repeat: no-repeat;
